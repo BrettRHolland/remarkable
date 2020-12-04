@@ -1,71 +1,96 @@
+header {
+  background-color: #020202;
+  width: 100%;
+}
+
 .container {
-  background-color: #ffffff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.03),
-    0 4px 8px rgba(0, 0, 0, 0.03), 0 8px 16px rgba(0, 0, 0, 0.03),
-    0 16px 32px rgba(0, 0, 0, 0.03), 0 32px 64px rgba(0, 0, 0, 0.03);
   margin: 60px auto;
-  max-width: 500px;
+  max-width: 400px;
   padding-bottom: 30px;
 }
 
-.base-size-container {
-  background-color: #f8f8f8;
+.root-size-container {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
   padding: 40px;
 }
 
-.base-counter-container {
+.root-counter-container {
   align-items: center;
-  background-color: #fb536d;
+  background-color: #1affac;
   border-radius: 2rem;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   padding: 5px;
 }
 
-.base-size-button {
+.root-size-button {
   background-color: transparent;
   border-radius: 50%;
   border: none;
-  color: #ffffff;
+  color: #020202;
+  font-family: "Proxima Nova Bold", sans-serif;
   font-size: 1.75rem;
-  font-weight: bold;
   height: 2rem;
   width: 2rem;
 }
 
-.base-size-button:focus {
+.root-size-button:focus {
   outline: none;
 }
 
-.base-size-number {
-  color: #ffffff;
+.root-size-number {
+  color: #020202;
+  font-family: "Proxima Nova Bold", sans-serif;
   font-size: 2rem;
-  font-weight: bold;
   min-width: 100px;
   padding: 0 20px;
   text-align: center;
 }
 
-span {
+.units {
+  font-family: "Proxima Nova Regular", sans-serif;
   font-size: 1rem;
-  position: relative;
-}
-
-.unit {
-  display: inline-block;
 }
 
 .conversion {
-  border-bottom: 1px solid #ebebeb;
   display: grid;
+  font-size: 1.125rem;
   grid-template-columns: repeat(2, 1fr);
   margin: 0 30px;
-  padding: 15px 0;
+  padding: 10px 15px;
 }
 
-.conversion:last-of-type {
-  border-bottom: none;
+.conversion:hover {
+  background-color: #1affac;
+  font-family: "Proxima Nova Bold", sans-serif;
+}
+
+.add-conversions-button {
+  align-items: center;
+  background-color: #020202;
+  border-radius: 50%;
+  border: none;
+  color: #ffffff;
+  display: flex;
+  font-size: 0.75rem;
+  height: 2rem;
+  justify-content: center;
+  margin: 15px auto;
+  padding: 15px 0;
+  width: 2rem;
+}
+
+.add-conversions-button:hover {
+  background-color: #1affac;
+  color: #020202;
+}
+
+.add-conversions-button:focus {
+  outline: none;
+}
+
+.rem {
+  text-align: right;
 }

@@ -2,13 +2,15 @@ import { useState } from "react";
 import "./style.css";
 
 function App() {
-  const [baseSize, setBaseSize] = useState(16);
+  const [rootSize, setRootSize] = useState(16);
+  const [calculationsBelowRoot, setCalculationsBelowRoot] = useState(5);
+  const [calculationsAboveRoot, setCalculationsAboveRoot] = useState(5);
 
-  let conversionsBelowBase = [];
-  for (let x = baseSize; x >= baseSize - 10; x--) {
-    let conversion = x / baseSize;
-    conversionsBelowBase.unshift(
-      <div className="conversion">
+  let conversionsBelowRoot = [];
+  for (let x = rootSize; x >= rootSize - calculationsBelowRoot; x--) {
+    let conversion = x / rootSize;
+    conversionsBelowRoot.unshift(
+      <div className="conversion" key={x}>
         <div className="px">{x}px</div>
         <div className="rem">
           {Math.round((conversion + Number.EPSILON) * 10000) / 10000}rem
@@ -17,11 +19,11 @@ function App() {
     );
   }
 
-  let conversionsAboveBase = [];
-  for (let x = baseSize + 1; x <= baseSize + 10; x++) {
-    let conversion = x / baseSize;
-    conversionsAboveBase.push(
-      <div className="conversion">
+  let conversionsAboveRoot = [];
+  for (let x = rootSize + 1; x <= rootSize + calculationsAboveRoot; x++) {
+    let conversion = x / rootSize;
+    conversionsAboveRoot.push(
+      <div className="conversion" key={x}>
         <div className="px">{x}px</div>
         <div className="rem">
           {Math.round((conversion + Number.EPSILON) * 10000) / 10000}rem
@@ -31,30 +33,50 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <div className="base-size-container">
-        <div className="base-counter-container">
-          <button
-            className="base-size-button"
-            onClick={() => setBaseSize(baseSize - 1)}
-          >
-            <i className="fas fa-chevron-left fa-fw" />
-          </button>
-          <div className="base-size-number">
-            {baseSize}
-            <span>px</span>
+    <>
+      <header>
+        <div className="root-size-container">
+          <div className="root-counter-container">
+            <button
+              className="root-size-button"
+              onClick={() => setRootSize(rootSize - 1)}
+            >
+              <i className="fas fa-chevron-left fa-fw" />
+            </button>
+            <div className="root-size-number">
+              {rootSize}
+              <span className="units">px</span>
+            </div>
+            <button
+              className="root-size-button"
+              onClick={() => setRootSize(rootSize + 1)}
+            >
+              <i className="fas fa-chevron-right fa-fw" />
+            </button>
           </div>
-          <button
-            className="base-size-button"
-            onClick={() => setBaseSize(baseSize + 1)}
-          >
-            <i className="fas fa-chevron-right fa-fw" />
-          </button>
         </div>
+      </header>
+      <div className="container">
+        <button
+          className="add-conversions-button"
+          onClick={() => {
+            setCalculationsBelowRoot(calculationsBelowRoot + 5);
+          }}
+        >
+          <i className="fas fa-chevron-up fa-fw" />
+        </button>
+        {conversionsBelowRoot}
+        {conversionsAboveRoot}
+        <button
+          className="add-conversions-button"
+          onClick={() => {
+            setCalculationsAboveRoot(calculationsAboveRoot + 5);
+          }}
+        >
+          <i className="fas fa-chevron-down fa-fw" />
+        </button>
       </div>
-      {conversionsBelowBase}
-      {conversionsAboveBase}
-    </div>
+    </>
   );
 }
 
