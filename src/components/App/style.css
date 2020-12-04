@@ -3,20 +3,33 @@ header {
   width: 100%;
 }
 
-.container {
-  margin: 60px auto;
-  max-width: 400px;
+.logo {
+  color: #ffffff;
+  font-size: 2rem;
+  letter-spacing: -1px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.logo strong {
+  color: #1affac;
+  font-family: "Proxima Nova Extrabold", sans-serif;
+}
+
+.description {
+  color: #ffffff;
+  margin-top: -5px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.counter-container {
+  display: flex;
+  justify-content: center;
   padding-bottom: 30px;
 }
 
-.root-size-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-  padding: 40px;
-}
-
-.root-counter-container {
+.counter {
   align-items: center;
   background-color: #1affac;
   border-radius: 2rem;
@@ -25,7 +38,7 @@ header {
   padding: 5px;
 }
 
-.root-size-button {
+.counter-button {
   background-color: transparent;
   border-radius: 50%;
   border: none;
@@ -36,11 +49,11 @@ header {
   width: 2rem;
 }
 
-.root-size-button:focus {
+.counter-button:focus {
   outline: none;
 }
 
-.root-size-number {
+.counter-number {
   color: #020202;
   font-family: "Proxima Nova Bold", sans-serif;
   font-size: 2rem;
@@ -49,9 +62,15 @@ header {
   text-align: center;
 }
 
-.units {
+.counter-units {
   font-family: "Proxima Nova Regular", sans-serif;
   font-size: 1rem;
+}
+
+.conversions-container {
+  margin: 30px auto;
+  max-width: 400px;
+  padding-bottom: 30px;
 }
 
 .conversion {
@@ -67,7 +86,7 @@ header {
   font-family: "Proxima Nova Bold", sans-serif;
 }
 
-.add-conversions-button {
+.conversions-button {
   align-items: center;
   background-color: #020202;
   border-radius: 50%;
@@ -82,15 +101,15 @@ header {
   width: 2rem;
 }
 
-.add-conversions-button:hover {
+.conversions-button:hover {
   background-color: #1affac;
   color: #020202;
 }
 
-.add-conversions-button:focus {
+.conversions-button:focus {
   outline: none;
 }
 
-.rem {
+.conversion-rem {
   text-align: right;
 }
